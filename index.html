@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js"></script>
+    <script type="module" src="stack.js"></script>
+    <title>Tower Of Hanoi</title>
+</head>
+
+<body>
+    <h1 class="title">Tower Of Hanoi</h1>
+    <div class="tower-container">
+        <div class="tower" id="tower1" data-value="1">
+            <div class="rod" id="rod"></div>
+            <div class="disk" id="disk1" data-value="1"></div>
+            <div class="disk" id="disk2" data-value="2"></div>
+            <div class="disk" id="disk3" data-value="3"></div>
+            <div class="disk" id="disk4" data-value="4"></div>
+            <div class="disk" id="disk5" data-value="5"></div>
+            <div class="disk" id="disk6" data-value="6"></div>
+            <div class="disk" id="disk7" data-value="7"></div>
+            <div class="disk" id="disk8" data-value="8"></div>
+        </div>
+        <div class="tower" id="tower2" data-value="2">
+            <div class="rod" id="rod"></div>
+        </div>
+        <div class="tower" id="tower3" data-value="3">
+            <div class="rod" id="rod"></div>
+        </div>
+    </div>
+    <div class="game-container">
+        <div class="game-bar">
+            <button id="solveButton">Solve</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <div class="game-info">
+            <h2 id="moveCounter">Moves: 0</h2>
+            <h2 id="timeCounter">Time: 0s</h2>
+        </div>
+    </div>
+</body>
+
+</html>
