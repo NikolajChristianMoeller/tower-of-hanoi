@@ -1,7 +1,8 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     font-weight: 600;
-    background-color: #f4f4f9;
+    background-color: #eef2f7;
     color: #333;
     margin: 0;
     padding: 0;
@@ -12,106 +13,93 @@ h1 {
     text-align: center;
     color: #4a90e2;
     margin-top: 20px;
+    text-shadow: 1px 1px 2px #333;
 }
 
+/* Tower Container */
 .tower-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    gap: 70px;
-    border: 2px solid #000000;
+    transform: translate(-50%, -55%);
+    gap: 50px;
+    border: 2px dashed #666;
+    padding: 20px;
 }
 
+/* Individual Tower Styling */
 .tower {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: 500px;
-    height: 800px;
-    background: #f2f2f2;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    width: 180px;
+    height: 500px;
+    background: #d3e3f0;
+    border: 2px solid #444;
+    border-radius: 8px;
+    position: relative;
+    padding-bottom: 10px;
 }
 
+/* Rod Styling */
 .rod {
-    width: 10px;
-    height: 600px;
-    background-color: #e1d08b;
+    width: 12px;
+    height: 400px;
+    background-color: #778ca3;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
 }
 
+/* Disk Styling */
 .disk {
     position: absolute;
-    height: 20px;
-    background-color: #e1d08b;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    height: 24px;
+    border-radius: 8px;
+    border: 1px solid #333;
     cursor: pointer;
 }
 
-
 #disk1 {
-    width: 400px;
+    width: 140px;
     bottom: 0px;
-    background-color: #e1d08b;
-    /* Gul */
+    background-color: #ffadad;
 }
 
 #disk2 {
-    width: 360px;
-    bottom: 20px;
-    background-color: #5c797b;
-    /* Bl책 */
+    width: 120px;
+    bottom: 24px;
+    background-color: #ffd6a5;
 }
 
 #disk3 {
-    width: 320px;
-    bottom: 40px;
-    background-color: #e1d08b;
-    /* Gul */
+    width: 100px;
+    bottom: 48px;
+    background-color: #fdffb6;
 }
 
 #disk4 {
-    width: 280px;
-    bottom: 60px;
-    background-color: #5c797b;
-    /* Bl책 */
+    width: 80px;
+    bottom: 72px;
+    background-color: #caffbf;
 }
 
 #disk5 {
-    width: 240px;
-    bottom: 80px;
-    background-color: #e1d08b;
-    /* Gul */
+    width: 60px;
+    bottom: 96px;
+    background-color: #9bf6ff;
 }
 
 #disk6 {
-    width: 200px;
-    bottom: 100px;
-    background-color: #5c797b;
-    /* Bl책 */
-}
-
-#disk7 {
-    width: 160px;
+    width: 40px;
     bottom: 120px;
-    background-color: #e1d08b;
-    /* Gul */
+    background-color: #a0c4ff;
 }
 
-#disk8 {
-    width: 120px;
-    bottom: 140px;
-    background-color: #5c797b;
-    /* Bl책 */
-}
-
+/* Animations */
 @keyframes moveUp {
     0% {
         transform: translateY(0);
@@ -119,15 +107,15 @@ h1 {
     }
 
     100% {
-        transform: translateY(-200px);
-        opacity: 0.5;
+        transform: translateY(-150px);
+        opacity: 0.7;
     }
 }
 
 @keyframes moveDown {
     0% {
-        transform: translateY(-200px);
-        opacity: 0.5;
+        transform: translateY(-150px);
+        opacity: 0.7;
     }
 
     100% {
@@ -136,53 +124,45 @@ h1 {
     }
 }
 
+/* Game Control Container */
 .game-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    gap: 200px;
+    gap: 50px;
+    background-color: #f7f9fc;
+    padding: 15px;
+    border: 2px solid #444;
+    border-radius: 8px;
 }
 
-.game-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    padding: 30px;
-    background: #5c797b;
-    border: 1px solid #000000;
-    border-radius: 5px;
-}
-
+/* Game Buttons */
 .game-bar button {
-    background: #e1d08b;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    padding: 5px 10px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 16px;
     cursor: pointer;
 }
 
 .game-bar button:hover {
-    background: #b1a264;
+    background-color: #357abd;
 }
 
+/* Game Info Display */
 .game-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
+    width: 250px;
     padding: 10px;
-    background: #5c797b;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    background: #d3e3f0;
+    border: 1px solid #333;
+    border-radius: 6px;
 }
-
-
-
-
-
-
