@@ -1,8 +1,9 @@
-import { Stack } from "./stack.js";
+import { TowerStack } from "./stack.js";
 
-const tower1 = document.querySelector("#tower1");
-const tower2 = document.querySelector("#tower2");
-const tower3 = document.querySelector("#tower3");
+const towerA = document.querySelector("#tower1");
+const towerB = document.querySelector("#tower2");
+const towerC = document.querySelector("#tower3");
+
 let disk1 = document.querySelector("#disk1");
 let disk2 = document.querySelector("#disk2");
 let disk3 = document.querySelector("#disk3");
@@ -11,91 +12,79 @@ let disk5 = document.querySelector("#disk5");
 let disk6 = document.querySelector("#disk6");
 let disk7 = document.querySelector("#disk7");
 let disk8 = document.querySelector("#disk8");
-let stack1, stack2, stack3;
 
-window.addEventListener("load", main);
+let stackA, stackB, stackC;
 
-function main() {
-  console.log("Hejsa");
+window.addEventListener("load", initGame);
+
+function initGame() {
   initStacks();
-  towerEventlisners();
-  diskEventlisners();
+  setupEventListeners();
 }
 
-function towerEventlisners() {
-  tower1.addEventListener("click", towerClickOn);
-  tower2.addEventListener("click", towerClickOn);
-  tower3.addEventListener("click", towerClickOn);
+function setupEventListeners() {
+  towerA.addEventListener("click", handleTowerClick);
+  towerB.addEventListener("click", handleTowerClick);
+  towerC.addEventListener("click", handleTowerClick);
 }
 
-function towerClickOn(event) {
+function handleTowerClick(event) {
   const towerId = event.target.getAttribute("data-value");
-  let stack;
+  let selectedStack;
 
   switch (towerId) {
     case "1":
-      stack = stack1;
+      selectedStack = stackA;
       break;
     case "2":
-      stack = stack2;
+      selectedStack = stackB;
       break;
     case "3":
-      stack = stack3;
+      selectedStack = stackC;
       break;
     default:
       return;
   }
 
-  console.log("Clicked on Tower: ", towerId, "Stack: ", stack);
-}
-
-function diskEventlisners() {
-  disk1.addEventListener("click", toggleDiskMove);
-  disk2.addEventListener("click", toggleDiskMove);
-  disk3.addEventListener("click", toggleDiskMove);
-  disk4.addEventListener("click", toggleDiskMove);
-  disk5.addEventListener("click", toggleDiskMove);
-  disk6.addEventListener("click", toggleDiskMove);
-  disk7.addEventListener("click", toggleDiskMove);
-  disk8.addEventListener("click", toggleDiskMove);
+  console.log("Tower Clicked:", towerId, "Stack:", selectedStack);
 }
 
 function toggleDiskMove(event) {
   const disk = event.target;
-  const isUp = disk.getAttribute("data-is-up") === "true";
+  const isLifted = disk.getAttribute("data-is-lifted") === "true";
 
-  if (isUp) {
-    moveDiskDown(disk);
+  if (isLifted) {
+    lowerDisk(disk);
   } else {
-    moveDiskUp(disk);
+    liftDisk(disk);
   }
 
-  disk.setAttribute("data-is-up", !isUp);
+  disk.setAttribute("data-is-lifted", !isLifted);
 }
 
-function moveDiskUp(disk) {
-  console.log("Clicked Disk:", disk);
-  disk.style.animation = "moveUp 0.5s forwards";
+function liftDisk(disk) {
+  console.log("Lifting Disk:", disk);
+  disk.style.animation = "lift 0.5s forwards";
 }
 
-function moveDiskDown(disk) {
-  console.log("Moving Disk Down:", disk);
-  disk.style.animation = "moveDown 0.5s forwards";
+function lowerDisk(disk) {
+  console.log("Lowering Disk:", disk);
+  disk.style.animation = "drop 0.5s forwards";
 }
 
 function initStacks() {
-  stack1 = new Stack();
-  stack2 = new Stack();
-  stack3 = new Stack();
+  stackA = new TowerStack();
+  stackB = new TowerStack();
+  stackC = new TowerStack();
 
-  stack1.push(disk8);
-  stack1.push(disk7);
-  stack1.push(disk6);
-  stack1.push(disk5);
-  stack1.push(disk4);
-  stack1.push(disk3);
-  stack1.push(disk2);
-  stack1.push(disk1);
+  stackA.addDisk(disk8);
+  stackA.addDisk(disk7);
+  stackA.addDisk(disk6);
+  stackA.addDisk(disk5);
+  stackA.addDisk(disk4);
+  stackA.addDisk(disk3);
+  stackA.addDisk(disk2);
+  stackA.addDisk(disk1);
 
-  console.log(stack1);
+  console.log(stackA);
 }

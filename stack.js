@@ -1,55 +1,36 @@
-export class Node {
+export class DiskNode {
   constructor(data) {
     this.data = data;
     this.next = null;
   }
 }
 
-export class Stack {
+export class TowerStack {
   constructor() {
-    this.head = null;
-    this.lenght = 0;
+    this.top = null;
+    this.length = 0;
   }
 
-  push(data) {
-    const node = new Node(data);
-    node.next = this.head;
-    this.head = node;
-    this.lenght++;
+  addDisk(data) {
+    const newNode = new DiskNode(data);
+    newNode.next = this.top;
+    this.top = newNode;
+    this.length++;
   }
 
-  pop() {
-    if (!this.head) {
-      return null;
-    }
-
-    const data = this.head.data;
-    this.head = this.head.next;
-    this.lenght--;
+  removeDisk() {
+    if (!this.top) return null;
+    const data = this.top.data;
+    this.top = this.top.next;
+    this.length--;
     return data;
   }
 
-  peek() {
-    return this.head ? this.head.data : null;
+  peekTop() {
+    return this.top ? this.top.data : null;
   }
 
   size() {
-    return this.lenght;
-  }
-
-  get(index) {
-    let current = this.head;
-    let i = 0;
-
-    while (current) {
-      if (i === index) {
-        return current.data;
-      }
-
-      current = current.next;
-      i++;
-    }
-
-    return null;
+    return this.length;
   }
 }
