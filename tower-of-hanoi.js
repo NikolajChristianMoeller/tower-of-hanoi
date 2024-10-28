@@ -1,16 +1,16 @@
-let moves = 0;
+let moveCount = 0;
 
-function hanoiSolver(diskCount, startRod, targetRod, auxRod) {
-  if (diskCount === 1) {
-    console.log(`Move disk 1 from ${startRod} to ${targetRod}`);
-    moves++;
+function towerOfHanoi(disk, fromRod, toRod, usingRod) {
+  if (disk === 1) {
+    console.log(`Move disk 1 from ${fromRod} to ${toRod}`);
+    moveCount++;
     return;
   }
-  hanoiSolver(diskCount - 1, startRod, auxRod, targetRod);
-  console.log(`Move disk ${diskCount} from ${startRod} to ${targetRod}`);
-  hanoiSolver(diskCount - 1, auxRod, targetRod, startRod);
-  moves++;
+  towerOfHanoi(disk - 1, fromRod, usingRod, toRod);
+  console.log(`Move disk ${disk} from ${fromRod} to ${toRod}`);
+  towerOfHanoi(disk - 1, usingRod, toRod, fromRod);
+  moveCount++;
 }
 
-hanoiSolver(3, "A", "C", "B");
-console.log(`Total Moves: ${moves}`);
+towerOfHanoi(3, "A", "C", "B");
+console.log(`Total Amount of Move ${moveCount}`);
