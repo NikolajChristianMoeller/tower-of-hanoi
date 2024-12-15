@@ -1,6 +1,5 @@
-# Tower-of-Hanoi
+# Tower of Hanoi
 
-Link til den deployede udgave af spillet. Jeg mangler stadig at få løst hvordan jeg kan få ringene over i de andre stacks.
+Link to the deployed version of the game on GitHub Pages:
 
-https://nikolajchristianmoeller.github.io/Tower-of-Hanoi/
-
+https://nikolajchristianmoeller.github.io/tower-of-hanoi/
